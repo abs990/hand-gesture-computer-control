@@ -1,4 +1,4 @@
-<h1 align="center"> Hand-gesture based Computer Control </h1> <br>
+<h1 align="center"> Hand-gesture control server </h1> <br>
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -22,8 +22,3 @@ Add features here
 ## Build Process
 
 Add build process here
-
-## Acknowledgments
-
-Add acknowledgments here
-
