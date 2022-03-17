@@ -2,6 +2,7 @@
 Client-side module for hand gesture control
 """
 import os
+from collections import OrderedDict
 import cv2
 import mediapipe as mp
 from utils import ServerChannel
@@ -53,14 +54,16 @@ def clientProcess(cap, hands, server_channel: ServerChannel):
         cv2.imshow('MediaPipe Hands', cv2.flip(image, 1))
         
         #collect landmarks
-        landmarks = {}
+        landmarks = OrderedDict()
         imageHeight, imageWidth, _ = image.shape
         if results.multi_hand_landmarks != None:
             for handLandmarks in results.multi_hand_landmarks:
+                count = 0
                 for point in mp_hands.HandLandmark:
+                    count+=1
                     normalizedLandmark = handLandmarks.landmark[point]
                     pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
-                    landmarks[point] = pixelCoordinatesLandmark
+                    landmarks[str(point)] = pixelCoordinatesLandmark  
 
         #send landmarks to server
         server_channel.sendLandmarks(landmarks)        

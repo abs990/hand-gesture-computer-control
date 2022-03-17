@@ -5,15 +5,17 @@ server_ok_response = "OK"
 
 def convertDictToMessage(source):
     message = "KP|"
+    key_id = 0
     for key in source.keys():
         value = source[key]
         if value != None:
-            message += str(key)
+            message += str(key_id)
             message += ','
             message += str(value[0])
             message += ','
             message += str(value[1])  
             message += '|'
+        key_id += 1
     message = message[:-1]
     message = message.encode("UTF-8")
     return message    
