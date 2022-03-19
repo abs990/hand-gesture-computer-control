@@ -45,7 +45,8 @@ class ServerChannel:
 
     def killAgent(self):
         if self.connected:
-            self.sock.shutdown()
+            self.sock.shutdown(socket.SHUT_RDWR)
+            self.sock.close()
             self.connected = False        
 
     def sendLandmarks(self, landmarks):
