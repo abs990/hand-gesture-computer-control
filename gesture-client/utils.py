@@ -5,6 +5,12 @@ server_ok_response = "OK"
 
 def convertDictToMessage(source):
     message = "KP|"
+    message += 'dims,'
+    message += str(source['dims'][0])
+    message += ','
+    message += str(source['dims'][1])
+    message += '|'
+    del source['dims']
     key_id = 0
     for key in source.keys():
         value = source[key]

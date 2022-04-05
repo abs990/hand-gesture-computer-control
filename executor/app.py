@@ -5,7 +5,7 @@ import os
 import sys
 import logging
 
-from flask import Blueprint, Flask, jsonify
+from flask import Blueprint, Flask, jsonify, request
 
 import handler as handle
 
@@ -66,6 +66,45 @@ def close_app(app_id):
         os.system(command)
         response['message'] = 'Closed'
         resp_code = 200
+    return jsonify(response), resp_code
+
+"""
+Endpoint to move mouse
+"""
+@bp.route('/mouse/move', methods=['POST'])
+def move_mouse():
+    response = {}
+    resp_code = 200
+    pos_x = request.json.get('pos_x',None)
+    pos_y = request.json.get('pos_y',None)
+    handle.mouse_move(pos_x,pos_y)
+    response['message'] = 'Moved'
+    return jsonify(response), resp_code
+
+"""
+Endpoint to left click mouse
+"""
+@bp.route('/mouse/left-click', methods=['POST'])
+def left_click_mouse():
+    response = {}
+    resp_code = 200
+    pos_x = request.json.get('pos_x',None)
+    pos_y = request.json.get('pos_y',None)
+    handle.left_mouse_click(pos_x, pos_y)
+    response['message'] = 'Clicked'
+    return jsonify(response), resp_code
+
+"""
+Endpoint to right click mouse
+"""
+@bp.route('/mouse/right-click', methods=['POST'])
+def right_click_mouse():
+    response = {}
+    resp_code = 200
+    pos_x = request.json.get('pos_x',None)
+    pos_y = request.json.get('pos_y',None)
+    handle.right_mouse_click(pos_x, pos_y)
+    response['message'] = 'Clicked'
     return jsonify(response), resp_code
 
 app.register_blueprint(bp, url_prefix='/api/v1/executor/')
