@@ -56,6 +56,7 @@ def clientProcess(cap, hands, server_channel: ServerChannel):
         #collect landmarks
         landmarks = OrderedDict()
         imageHeight, imageWidth, _ = image.shape
+        landmarks['dims'] = [imageHeight, imageWidth]
         if results.multi_hand_landmarks != None:
             for handLandmarks in results.multi_hand_landmarks:
                 count = 0
