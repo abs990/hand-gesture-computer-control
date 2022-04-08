@@ -11,17 +11,21 @@ def convertDictToMessage(source):
     message += str(source['dims'][1])
     message += '|'
     del source['dims']
-    key_id = 0
-    for key in source.keys():
-        value = source[key]
-        if value != None:
-            message += str(key_id)
-            message += ','
-            message += str(value[0])
-            message += ','
-            message += str(value[1])  
-            message += '|'
-        key_id += 1
+    for hand_type in source.keys():
+        hand_positions = source[hand_type]
+        message += str(hand_type)
+        message += '|'
+        key_id = 0
+        for position in hand_positions:
+            value = hand_positions[position]
+            if value != None:
+                message += str(key_id)
+                message += ','
+                message += str(value[0])
+                message += ','
+                message += str(value[1])  
+                message += '|'
+            key_id += 1
     message = message[:-1]
     message = message.encode("UTF-8")
     return message    
