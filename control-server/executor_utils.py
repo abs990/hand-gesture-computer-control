@@ -66,3 +66,10 @@ class Executor:
             'pos_y': pos_y
         }
         requests.post(url,json=payload,headers=headers)
+    
+    """
+    call executor to trigger special gesture
+    """
+    def triggerSpecialGesture(self, app_id, gesture_id):
+        url = self.base_endpoint+"/app/"+str(app_id)+"/special-gesture/"+str(gesture_id)
+        requests.post(url, headers=headers)

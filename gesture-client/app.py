@@ -58,16 +58,27 @@ def clientProcess(cap, hands, server_channel: ServerChannel):
         imageHeight, imageWidth, _ = image.shape
         landmarks['dims'] = [imageHeight, imageWidth]
         if results.multi_hand_landmarks != None:
-            for handLandmarks in results.multi_hand_landmarks:
+            handTypes = []
+            for hand in results.multi_handedness:
+                handType=hand.classification[0].label
+                handTypes.append(handType)
+            #invert due to guaranteed incorrect classification by mediapipe
+            for i in range(len(handTypes)):
+                if handTypes[i] == 'Right':
+                    handTypes[i] = 'Left'
+                else:
+                    handTypes[i] = 'Right'
+            for handLandmarks, handType in zip(results.multi_hand_landmarks,handTypes):
                 count = 0
+                landmarks[str(handType)] = {}
                 for point in mp_hands.HandLandmark:
                     count+=1
                     normalizedLandmark = handLandmarks.landmark[point]
                     pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
-                    landmarks[str(point)] = pixelCoordinatesLandmark  
+                    landmarks[str(handType)][str(point)] = pixelCoordinatesLandmark  
 
         #send landmarks to server
-        server_channel.sendLandmarks(landmarks)        
+        server_channel.sendLandmarks(landmarks)
 
         #press escape key to close program
         if cv2.waitKey(5) & 0xFF == 27:

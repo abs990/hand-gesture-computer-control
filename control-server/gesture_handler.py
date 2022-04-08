@@ -1,6 +1,7 @@
 import enum
 from typing import Dict
 from executor_utils import Executor
+from hand_pose import Hand
 import numpy as np
 
 REPLY_OK = "OK"
@@ -48,86 +49,22 @@ class GestureHandler:
         self.mouse_static_counter = 0
 
     def __initialise_landmarks(self):
-        self.landmarks = {}
-        for i in range(20):
-            self.landmarks[i] = None
-        self.N_landmarks = 0
+        self.left_hand = None
+        self.right_hand = None
         self.landmark_h = 0
-        self.landmark_w = 0    
-
-    """
-    Check if thumb is raised or not
-    """
-    def __isThumbRaised(self):
-        fixedPoint_x = self.landmarks[2].x
-        return self.landmarks[3].x > fixedPoint_x and \
-               self.landmarks[4].x > fixedPoint_x   
-    
-    """
-    Check if thumb is down or not
-    """
-    def __isThumbDown(self):
-        fixedPoint_y = self.landmarks[2].y
-        return self.landmarks[3].y < fixedPoint_y and \
-               self.landmarks[4].y < fixedPoint_y     
-    
-    """
-    Check if first finger is raised or not
-    """
-    def __isFirstFingerRaised(self):
-        fixedPoint_y = self.landmarks[5].y
-        return self.landmarks[6].y < fixedPoint_y and \
-               self.landmarks[7].y < fixedPoint_y and \
-               self.landmarks[8].y < fixedPoint_y 
-
-    """
-    Check if second finger is raised or not
-    """
-    def __isSecondFingerRaised(self):
-        fixedPoint_y = self.landmarks[9].y
-        return self.landmarks[10].y < fixedPoint_y and \
-               self.landmarks[11].y < fixedPoint_y and \
-               self.landmarks[12].y < fixedPoint_y 
-
-    """
-    Check if third finger is raised or not
-    """
-    def __isThirdFingerRaised(self):
-        fixedPoint_y = self.landmarks[13].y
-        return self.landmarks[14].y < fixedPoint_y and \
-               self.landmarks[15].y < fixedPoint_y and \
-               self.landmarks[16].y < fixedPoint_y
-
-    """
-    Check if fourth finger is raised or not
-    """
-    def __isFourthFingerRaised(self):
-        fixedPoint_y = self.landmarks[17].y
-        return self.landmarks[18].y < fixedPoint_y and \
-               self.landmarks[19].y < fixedPoint_y and \
-               self.landmarks[20].y < fixedPoint_y
-
-    """
-    Check if thumb lies to the left or right of the remaining fingers
-    """
-    def __computeHandOrientation(self):
-        fixedPoint_x = self.landmarks[5].x
-        if self.landmarks[3].x < fixedPoint_x and \
-           self.landmarks[4].x < fixedPoint_x:
-           return 'left'
-        else:
-           return 'right'     
-
+        self.landmark_w = 0
     """
     Check if user sent a thumbs up or thumbs down
     """
     def __parseAppConsentGesture(self):
-        if not self.__isFirstFingerRaised() and \
-           not self.__isSecondFingerRaised() and \
-           not self.__isThirdFingerRaised() and \
-           not self.__isFourthFingerRaised():
-           thumb_tip_y = self.landmarks[4].y
-           first_finger_knuckle_y = self.landmarks[6].y 
+        if not self.__isRightHandAvailable():
+           return 'Ignore' 
+        elif not self.right_hand.isFirstFingerRaised() and \
+           not self.right_hand.isSecondFingerRaised() and \
+           not self.right_hand.isThirdFingerRaised() and \
+           not self.right_hand.isFourthFingerRaised():
+           thumb_tip_y = self.right_hand.landmarks[4].y
+           first_finger_knuckle_y = self.right_hand.landmarks[6].y 
            if thumb_tip_y < first_finger_knuckle_y:
                return 'Yes'
            else:
@@ -139,25 +76,56 @@ class GestureHandler:
     Count number of raised fingers in gesture for app open
     """
     def __countRaisedFingers(self):
-        numFingersRaised = 0
-        if self.__isThumbRaised():
-            numFingersRaised += 1
-        if self.__isFirstFingerRaised():
-            numFingersRaised += 1
-        if self.__isSecondFingerRaised():
-            numFingersRaised += 1
-        if self.__isThirdFingerRaised():
-            numFingersRaised += 1
-        if self.__isFourthFingerRaised():
-            numFingersRaised += 1
-        return numFingersRaised                    
+        count = 0
+        if self.__isRightHandAvailable():
+            count += self.right_hand.countRaisedFingers()
+        if self.__isLeftHandAvailable():
+            count += self.left_hand.countRaisedFingers()
+        return count                  
 
     """
-    Check if user sent gesture to close currently open app
+    Check if user sent gesture to close currently open app - cross hands at wrists like an x
     """
+
+    def __unit_vector(self, vector):
+        return vector / np.linalg.norm(vector)
+
     def __isAppCloseGesture(self):
-        numFingersRaised = self.__countRaisedFingers()
-        return numFingersRaised == 5
+
+        if self.right_hand == None or \
+            self.left_hand == None or \
+            self.right_hand.N_landmarks < 21 or \
+            self.left_hand.N_landmarks < 21:
+            return False
+
+        else:
+            right_wrist_pos = self.right_hand.landmarks[0]
+            right_wrist_pos = np.array([right_wrist_pos.x, right_wrist_pos.y])
+            left_wrist_pos = self.left_hand.landmarks[0]
+            left_wrist_pos = np.array([left_wrist_pos.x, left_wrist_pos.y])
+            right_middle_finger_base_pos = self.right_hand.landmarks[9]
+            right_middle_finger_base_pos = np.array([right_middle_finger_base_pos.x, right_middle_finger_base_pos.y])
+            left_middle_finger_base_pos = self.left_hand.landmarks[9]
+            left_middle_finger_base_pos = np.array([left_middle_finger_base_pos.x, left_middle_finger_base_pos.y])
+
+            if right_middle_finger_base_pos[0] < left_middle_finger_base_pos[0]:
+                return False
+            
+            wrist_diff = np.linalg.norm(right_wrist_pos - left_wrist_pos)
+            if wrist_diff > 100:
+                return False
+
+            right_hand_vec = right_middle_finger_base_pos - right_wrist_pos
+            left_hand_vec = left_middle_finger_base_pos - left_wrist_pos
+            right_u = self.__unit_vector(right_hand_vec)
+            left_u = self.__unit_vector(left_hand_vec)
+
+            angle =  np.degrees(np.arccos(np.clip(np.dot(right_u, left_u), -1.0, 1.0)))
+
+            if angle < 60 or angle > 100:
+                return False
+
+            return True
 
     def __resetGestureTracking(self):
         self.gesture = None
@@ -170,21 +138,115 @@ class GestureHandler:
     """
     Check if user sent gesture to get control of mouse pointer
     """
+    def __isRightHandAvailable(self):
+        return self.right_hand != None and self.right_hand.N_landmarks == 21
+
+    def __isLeftHandAvailable(self):
+        return self.left_hand != None and self.left_hand.N_landmarks == 21 
+
     def __isMousePointerGesture(self):
-        numFingersRaised = self.__countRaisedFingers()
-        return numFingersRaised == 1 and self.__isFirstFingerRaised()
+        if not self.__isRightHandAvailable():
+            return False
+        numFingersRaised = self.right_hand.countRaisedFingers()
+        return numFingersRaised == 1 and self.right_hand.isFirstFingerRaised()
     
     def __isRightClickGesture(self):
-        numFingersRaised = self.__countRaisedFingers()
-        return numFingersRaised == 2 and self.__isFirstFingerRaised() and self.__isSecondFingerRaised()
+        if not self.__isRightHandAvailable():
+            return False
+        numFingersRaised = self.right_hand.countRaisedFingers()
+        return numFingersRaised == 2 and self.right_hand.isFirstFingerRaised() and self.right_hand.isSecondFingerRaised()
 
-    def __getFirstFingerTipPosition(self):
-        return [self.landmarks[8].x, self.landmarks[8].y]
+    def __getRightFirstFingerTipPosition(self):
+        return [self.right_hand.landmarks[8].x, self.right_hand.landmarks[8].y]
+
+    """
+    Special gestures
+    """
+
+    def __isLeftHandThumbRight(self):
+        if not self.__isLeftHandAvailable():
+            return False
+
+        if self.left_hand.isFirstFingerRaised() or \
+           self.left_hand.isSecondFingerRaised() or \
+           self.left_hand.isThirdFingerRaised() or \
+           self.left_hand.isFourthFingerRaised():
+           return False 
+
+        left_thumb_tip_x = self.left_hand.landmarks[4].x
+        left_first_finger_base_x = self.left_hand.landmarks[5].x
+
+        return left_thumb_tip_x < left_first_finger_base_x
+
+    def __isRightHandThumbLeft(self):
+        if not self.__isRightHandAvailable():
+            return False
+
+        if self.right_hand.isFirstFingerRaised() or \
+           self.right_hand.isSecondFingerRaised() or \
+           self.right_hand.isThirdFingerRaised() or \
+           self.right_hand.isFourthFingerRaised():
+           return False 
+
+        right_thumb_tip_x = self.right_hand.landmarks[4].x
+        right_first_finger_base_x = self.right_hand.landmarks[5].x
+
+        return right_thumb_tip_x > right_first_finger_base_x
+
+    def __isHandLShape(self, hand_type):
+        if hand_type=='Right':
+            if not self.__isRightHandAvailable():
+                return False
+            hand = self.right_hand
+        
+        if hand_type=='Left':
+            if not self.__isLeftHandAvailable():
+                return False
+            hand = self.left_hand
+
+        if hand.isSecondFingerRaised() or \
+           hand.isThirdFingerRaised() or \
+           hand.isFourthFingerRaised():
+           return False
+
+        if not hand.isThumbRaised() or \
+           not hand.isFirstFingerRaised():
+           return False
+
+        thumb_base = hand.landmarks[1]
+        thumb_base = np.array([thumb_base.x, thumb_base.y])
+        thumb_tip = hand.landmarks[4]
+        thumb_tip = np.array([thumb_tip.x, thumb_tip.y])
+        first_finger_base = hand.landmarks[5]
+        first_finger_base = np.array([first_finger_base.x, first_finger_base.y])
+        first_finger_tip = hand.landmarks[8]
+        first_finger_tip = np.array([first_finger_tip.x, first_finger_tip.y])
+
+        f1 = thumb_tip - thumb_base
+        f2 = first_finger_tip - first_finger_base
+
+        f1_u = self.__unit_vector(f1)
+        f2_u = self.__unit_vector(f2)
+
+        angle =  np.degrees(np.arccos(np.clip(np.dot(f1_u, f2_u), -1.0, 1.0)))
+
+        return angle >= 60
+
+    def __isRightHandLShape(self):
+        return self.__isHandLShape('Right')
+
+    def __isLeftHandLShape(self):
+        return self.__isHandLShape('Left')
+
+    def __isBothHandsLShape(self):
+        return self.__isRightHandLShape() and self.__isLeftHandLShape()
 
     """
     Parse client message and produce dictionary of landmarks
     """    
     def __parseClientMessage(self, client_msg: str) -> Dict:
+        self.right_hand = None
+        self.left_hand = None
         landmark_list = client_msg.split("|")
         del landmark_list[0]
         dims = landmark_list[0]
@@ -192,12 +254,25 @@ class GestureHandler:
         self.landmark_h = float(info[1])
         self.landmark_w = float(info[2])
         del landmark_list[0]
-        self.N_landmarks = len(landmark_list)
-        if self.N_landmarks == 21:    
-            for landmark in landmark_list:
+        current_hand = None
+        current_landmarks = {}
+        N_landmarks = {}
+        for landmark in landmark_list:
+            if landmark in ['Right', 'Left']:
+                current_hand = landmark
+                current_landmarks[current_hand] = [0]*21
+                N_landmarks[current_hand] = 0
+            else:
                 info = landmark.split(",")
-                self.landmarks[int(info[0])] = HandKeypoint(x = float(info[1]), \
-                                                            y = float(info[2]))
+                current_landmarks[current_hand][int(info[0])] = HandKeypoint(x = float(info[1]), \
+                                                                            y = float(info[2]))
+                N_landmarks[current_hand] += 1
+        if 'Right' in N_landmarks:
+            hand_type = 'Right'
+            self.right_hand = Hand(hand_type,current_landmarks[hand_type],N_landmarks[hand_type])
+        if 'Left' in N_landmarks:
+            hand_type = 'Left'
+            self.left_hand = Hand(hand_type,current_landmarks[hand_type],N_landmarks[hand_type])
 
     """
     Parse landmarks and update state of object
@@ -205,7 +280,11 @@ class GestureHandler:
     def updateLandmarks(self, client_msg: str) -> str:
         self.__parseClientMessage(client_msg)
 
-        if self.N_landmarks < 21:
+        #right hand is necessary to control the system
+        #if self.right_hand == None or self.right_hand.N_landmarks < 21:
+        #    self.__resetGestureTracking()
+        #   return REPLY_OK
+        if not self.__isRightHandAvailable() and not self.__isLeftHandAvailable():
             self.__resetGestureTracking()
             return REPLY_OK
 
@@ -261,7 +340,7 @@ class GestureHandler:
         elif self.app_status == AppStatus.mouse_pointer_active:
             if self.__isMousePointerGesture():
                 self.__resetGestureTracking()
-                new_position = self.__getFirstFingerTipPosition()
+                new_position = self.__getRightFirstFingerTipPosition()
                 dist_moved = np.linalg.norm(np.asarray(new_position) - np.asarray(self.mouse_pointer_tracking))
                 if dist_moved > self.mouse_movement_sensitivity:
                     self.mouse_pointer_tracking = new_position
@@ -298,20 +377,41 @@ class GestureHandler:
             if self.__isMousePointerGesture():
                 self.app_status = AppStatus.mouse_pointer_active
                 reply = MOUSE_POINTER_ACTIVE
-                self.mouse_pointer_tracking = self.__getFirstFingerTipPosition()
+                self.mouse_pointer_tracking = self.__getRightFirstFingerTipPosition()
                 self.__resetGestureTracking()
             
-            elif self.__isAppCloseGesture():
-                self.gesture = 5
-                self.frame_counter += 1
-                if self.frame_counter == self.sensitivity:
-                    self.exec.closeApp(self.app_id)
-                    self.app_status = AppStatus.inactive
+            else: 
+                if self.__isAppCloseGesture():
+                    current_gesture = 11
+                elif self.__isLeftHandThumbRight():
+                    current_gesture = 12
+                elif self.__isRightHandThumbLeft():
+                    current_gesture = 13
+                elif self.__isBothHandsLShape():
+                    current_gesture = 15
+                elif self.__isRightHandLShape():
+                    current_gesture = 14
+                else:
+                    current_gesture = self.__countRaisedFingers()
+
+                if self.gesture == None:
+                    self.gesture = current_gesture    
+                    self.frame_counter = 1
+                elif self.gesture != current_gesture:
                     self.__resetGestureTracking()
-                    reply = PREFIX_CLOSED_APP_MESSAGE+self.app
-                    self.__resetAppTracking()          
-            
-            else:
-                self.__resetGestureTracking()
+                else:
+                    self.frame_counter += 1
+                
+                if self.frame_counter == self.sensitivity:
+                    if self.__isAppCloseGesture():
+                        self.exec.closeApp(self.app_id)
+                        self.app_status = AppStatus.inactive
+                        self.__resetGestureTracking()
+                        reply = PREFIX_CLOSED_APP_MESSAGE+self.app
+                        self.__resetAppTracking()          
+                    else:
+                        self.exec.triggerSpecialGesture(self.app_id, self.gesture)
+
+                    self.__resetGestureTracking()
         
         return reply        
