@@ -5,6 +5,7 @@ import json
 import os
 import sys
 import logging
+import socket
 
 from flask import Blueprint, Flask, jsonify, request
 
@@ -12,7 +13,10 @@ from db_handler import DB_Handler
 from mouse_handler import *
 from special_handler import *
 
-db_handle = DB_Handler("executor.db")
+db_name = "executor.db"
+db_handle = DB_Handler(db_name)
+
+unity_socket = None
 
 #The application
 app = Flask(__name__)
@@ -22,6 +26,9 @@ bp = Blueprint('app', __name__)
 
 PREFIX_OPEN_COMMAND = "open "
 PREFIX_CLOSE_COMMAND = "pkill -x "
+
+UNITY_HOST = '127.0.0.1'
+UNITY_PORT = 25002
 
 """
 Endpoint to get app info based on gesture id
@@ -125,6 +132,9 @@ def trigger_special_gesture(app_id, gesture_id):
     resp_code = 200
     gesture_details = db_handle.get_special_gesture_details(app_id, gesture_id)
 
+    if gesture_details == "":
+        return jsonify("Gesture not found"), 404
+
     if gesture_details['system_hook'] == 'Keyboard':
         key_list = gesture_details['hook_value']
         key_list = key_list.split(',')
@@ -134,7 +144,24 @@ def trigger_special_gesture(app_id, gesture_id):
     if gesture_details['system_hook'] == 'Shell':
         trigger_shell_command(gesture_details['command'])
 
-    response['message'] = 'Triggered'
+    if gesture_details['system_hook'] == 'Unity':
+        global unity_socket
+        if unity_socket == None:
+            try:
+                unity_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                unity_socket.connect((UNITY_HOST, UNITY_PORT))
+            except Exception as e:
+                print("Something's wrong with %s:%d. Exception is %s" % (UNITY_HOST, UNITY_PORT, e))
+        try:
+            trigger_unity_action(unity_socket, gesture_details['hook_value'])
+            response['message'] = 'Triggered'
+        except Exception as e:
+            print("Something's wrong with %s:%d. Exception is %s" % (UNITY_HOST, UNITY_PORT, e))
+            response['message'] = 'Problematic connection to Unity'
+            resp_code = 503
+            unity_socket.close()
+            unity_socket = None
+
     return jsonify(response), resp_code
 
 """
@@ -147,12 +174,18 @@ def register_gesture():
 
 @bp.route('/gesture/<gesture_id>', methods=['DELETE'])
 def delete_gesture(gesture_id):
+    gesture_details = db_handle.get_gesture_details(int(gesture_id))
+    if gesture_details == "":
+        return jsonify("Gesture not found"), 404
     db_handle.delete_gesture(int(gesture_id))
     return "Done", 200
 
 @bp.route('/gesture/<gesture_id>', methods=['GET'])
 def get_gesture_details(gesture_id):
-    return jsonify(db_handle.get_gesture_details(int(gesture_id))), 200
+    gesture_details = db_handle.get_gesture_details(int(gesture_id))
+    if gesture_details == "":
+        return jsonify("Gesture not found"), 404
+    return jsonify(gesture_details), 200
 
 """
 Management APIs for special gestures
@@ -164,10 +197,16 @@ def add_special_gesture():
 
 @bp.route('/app/special-gesture/<app_id>/<gesture_id>', methods=['GET'])
 def get_special_gesture_details(app_id, gesture_id):
-    return jsonify(db_handle.get_special_gesture_details(int(app_id), int(gesture_id))), 200
+    special_gesture_details = db_handle.get_special_gesture_details(int(app_id), int(gesture_id))
+    if special_gesture_details == "":
+        return jsonify("Special gesture not found"), 404
+    return jsonify(special_gesture_details), 200
 
 @bp.route('/app/special-gesture/<app_id>/<gesture_id>', methods=['DELETE'])
 def delete_special_gesture(app_id, gesture_id):
+    special_gesture_details = db_handle.get_special_gesture_details(int(app_id), int(gesture_id))
+    if special_gesture_details == "":
+        return jsonify("Special gesture not found"), 404
     db_handle.delete_special_gesture_details(int(app_id), int(gesture_id))
     return "Done", 200
 
