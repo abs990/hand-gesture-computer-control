@@ -145,7 +145,7 @@ class GestureHandler:
         return self.left_hand != None and self.left_hand.N_landmarks == 21 
 
     def __isMousePointerGesture(self):
-        if not self.__isRightHandAvailable():
+        if self.__isLeftHandAvailable() or not self.__isRightHandAvailable():
             return False
         numFingersRaised = self.right_hand.countRaisedFingers()
         return numFingersRaised == 1 and self.right_hand.isFirstFingerRaised()
@@ -241,6 +241,36 @@ class GestureHandler:
     def __isBothHandsLShape(self):
         return self.__isRightHandLShape() and self.__isLeftHandLShape()
 
+    def __isRightHandHifi(self):
+        if not self.__isRightHandAvailable() or self.__isLeftHandAvailable():
+            return False
+
+        return self.right_hand.countRaisedFingers() == 5
+
+    def __isRightHandThumbsUp(self):
+        if not self.__isRightHandAvailable():
+            return False
+
+        if not self.right_hand.isFirstFingerRaised() and \
+           not self.right_hand.isSecondFingerRaised() and \
+           not self.right_hand.isThirdFingerRaised() and \
+           not self.right_hand.isFourthFingerRaised():
+           thumb_tip_y = self.right_hand.landmarks[4].y
+           first_finger_knuckle_y = self.right_hand.landmarks[6].y 
+           return thumb_tip_y < first_finger_knuckle_y        
+
+    def __isRightHandThumbsDown(self):
+        if not self.__isRightHandAvailable():
+            return False
+
+        if not self.right_hand.isFirstFingerRaised() and \
+           not self.right_hand.isSecondFingerRaised() and \
+           not self.right_hand.isThirdFingerRaised() and \
+           not self.right_hand.isFourthFingerRaised():
+           thumb_tip_y = self.right_hand.landmarks[4].y
+           first_finger_knuckle_y = self.right_hand.landmarks[6].y 
+           return thumb_tip_y > first_finger_knuckle_y
+
     """
     Parse client message and produce dictionary of landmarks
     """    
@@ -280,10 +310,6 @@ class GestureHandler:
     def updateLandmarks(self, client_msg: str) -> str:
         self.__parseClientMessage(client_msg)
 
-        #right hand is necessary to control the system
-        #if self.right_hand == None or self.right_hand.N_landmarks < 21:
-        #    self.__resetGestureTracking()
-        #   return REPLY_OK
         if not self.__isRightHandAvailable() and not self.__isLeftHandAvailable():
             self.__resetGestureTracking()
             return REPLY_OK
@@ -385,12 +411,18 @@ class GestureHandler:
                     current_gesture = 11
                 elif self.__isLeftHandThumbRight():
                     current_gesture = 12
+                elif self.__isRightHandThumbsUp():
+                    current_gesture = 17
                 elif self.__isRightHandThumbLeft():
                     current_gesture = 13
                 elif self.__isBothHandsLShape():
                     current_gesture = 15
                 elif self.__isRightHandLShape():
                     current_gesture = 14
+                elif self.__isRightHandHifi():
+                    current_gesture = 16
+                elif self.__isRightHandThumbsDown():
+                    current_gesture = 18
                 else:
                     current_gesture = self.__countRaisedFingers()
 

@@ -44,7 +44,7 @@ class ServerChannel:
             try:
                 self.sock.connect((self.server_host, self.server_port))
                 self.connected = True
-            except socket.error as ex:
+            except Exception as ex:
                 self.connected = False
                 print(ex)  
 
