@@ -195,3 +195,4 @@ zipp                                              3.7.0
 2. 2D Hand pose estimation - https://notrocketscience.blog/gentle-introduction-to-2d-hand-pose-estimation-approach-explained/
 3. Python keyboard control - https://stackabuse.com/guide-to-pythons-keyboard-module/
 4. Python mouse control - https://web.archive.org/web/20111229234504/http://www.geekorgy.com:80/index.php/2010/06/python-mouse-click-and-move-mouse-in-apple-mac-osx-snow-leopard-10-6-x/
+5. Open source assets for Unity - https://assetstore.unity.com/packages/3d/animations/melee-axe-pack-35320
