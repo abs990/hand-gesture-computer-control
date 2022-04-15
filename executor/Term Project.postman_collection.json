@@ -1,0 +1,2632 @@
+{
+	"info": {
+		"_postman_id": "1f3e0f0b-a324-4761-9def-b6787018f5e7",
+		"name": "Term Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get app details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/10/app-info",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "35000",
+					"path": [
+						"api",
+						"v1",
+						"executor",
+						"gesture",
+						"10",
+						"app-info"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get app details - 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/1/app-info",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"1",
+								"app-info"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "44"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:53:00 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 1,\n    \"app_name\": \"Outlook\"\n}"
+				},
+				{
+					"name": "Get app details - 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/2/app-info",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"2",
+								"app-info"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:53:26 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 2,\n    \"app_name\": \"Safari\"\n}"
+				},
+				{
+					"name": "Get app details - 3",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/3/app-info",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"3",
+								"app-info"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:53:39 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 3,\n    \"app_name\": \"GarageBand\"\n}"
+				},
+				{
+					"name": "Get app details - 4",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/4/app-info",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"4",
+								"app-info"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:53:52 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 4,\n    \"app_name\": \"Trello\"\n}"
+				},
+				{
+					"name": "Get app details - 5",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/5/app-info",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"5",
+								"app-info"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "44"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:54:03 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 5,\n    \"app_name\": \"Numbers\"\n}"
+				},
+				{
+					"name": "Get app details - 6",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/6/app-info",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"6",
+								"app-info"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "44"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:54:15 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 6,\n    \"app_name\": \"Keynote\"\n}"
+				},
+				{
+					"name": "Get app details - 7",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/7/app-info",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"7",
+								"app-info"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:54:24 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 7,\n    \"app_name\": \"Pages\"\n}"
+				},
+				{
+					"name": "Get app details - 8",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/8/app-info",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"8",
+								"app-info"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:54:34 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 8,\n    \"app_name\": \"Slack\"\n}"
+				},
+				{
+					"name": "Get app details - 9",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/9/app-info",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"9",
+								"app-info"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:54:42 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 9,\n    \"app_name\": \"WhatsApp\"\n}"
+				},
+				{
+					"name": "Get app details - 10",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/10/app-info",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"10",
+								"app-info"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:54:51 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 10,\n    \"app_name\": \"Unity\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Open app",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:35000/api/v1/executor/app/10/open",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "35000",
+					"path": [
+						"api",
+						"v1",
+						"executor",
+						"app",
+						"10",
+						"open"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Close app",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:35000/api/v1/executor/app/10/close",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "35000",
+					"path": [
+						"api",
+						"v1",
+						"executor",
+						"app",
+						"10",
+						"close"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add gesture",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gesture_id\": 10,\n    \"app_id\": 10,\n    \"app_path\": \"/Applications/Unity\\\\ Hub.app\",\n    \"canonical_app_name\": \"Unity\\\\ Hub\",\n    \"common_app_name\": \"Unity\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "35000",
+					"path": [
+						"api",
+						"v1",
+						"executor",
+						"gesture",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get gesture details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "35000",
+					"path": [
+						"api",
+						"v1",
+						"executor",
+						"gesture",
+						"10"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get gesture details - 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "155"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:55:21 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 1,\n    \"app_path\": \"/Applications/Microsoft\\\\ Outlook.app\",\n    \"canonical_app_name\": \"Microsoft\\\\ Outlook\",\n    \"common_app_name\": \"Outlook\"\n}"
+				},
+				{
+					"name": "Get gesture details - 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:55:35 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 2,\n    \"app_path\": \"/Applications/Safari.app\",\n    \"canonical_app_name\": \"Safari\",\n    \"common_app_name\": \"Safari\"\n}"
+				},
+				{
+					"name": "Get gesture details - 3",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "140"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:55:45 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 3,\n    \"app_path\": \"/Applications/GarageBand.app\",\n    \"canonical_app_name\": \"GarageBand\",\n    \"common_app_name\": \"GarageBand\"\n}"
+				},
+				{
+					"name": "Get gesture details - 4",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:55:54 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 4,\n    \"app_path\": \"/Applications/Trello.app\",\n    \"canonical_app_name\": \"Trello\",\n    \"common_app_name\": \"Trello\"\n}"
+				},
+				{
+					"name": "Get gesture details - 5",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "131"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:56:05 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 5,\n    \"app_path\": \"/Applications/Numbers.app\",\n    \"canonical_app_name\": \"Numbers\",\n    \"common_app_name\": \"Numbers\"\n}"
+				},
+				{
+					"name": "Get gesture details - 6",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"6"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "131"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:56:14 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 6,\n    \"app_path\": \"/Applications/Keynote.app\",\n    \"canonical_app_name\": \"Keynote\",\n    \"common_app_name\": \"Keynote\"\n}"
+				},
+				{
+					"name": "Get gesture details - 7",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/7",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"7"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "125"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:56:22 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 7,\n    \"app_path\": \"/Applications/Pages.app\",\n    \"canonical_app_name\": \"Pages\",\n    \"common_app_name\": \"Pages\"\n}"
+				},
+				{
+					"name": "Get gesture details - 8",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/8",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"8"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "125"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:56:31 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 8,\n    \"app_path\": \"/Applications/Slack.app\",\n    \"canonical_app_name\": \"Slack\",\n    \"common_app_name\": \"Slack\"\n}"
+				},
+				{
+					"name": "Get gesture details - 9",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/9",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"9"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "134"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:56:40 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 9,\n    \"app_path\": \"/Applications/WhatsApp.app\",\n    \"canonical_app_name\": \"WhatsApp\",\n    \"common_app_name\": \"WhatsApp\"\n}"
+				},
+				{
+					"name": "Get gesture details - 10",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/10",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"gesture",
+								"10"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "138"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:56:49 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 10,\n    \"app_path\": \"/Applications/Unity\\\\ Hub.app\",\n    \"canonical_app_name\": \"Unity\\\\ Hub\",\n    \"common_app_name\": \"Unity\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete gesture details",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:35000/api/v1/executor/gesture/12",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "35000",
+					"path": [
+						"api",
+						"v1",
+						"executor",
+						"gesture",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add special gesture",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app_id\": 4,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 15,\n    \"hook_value\": \"ctrl+command+f\",\n    \"system_hook\": \"Keyboard\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "35000",
+					"path": [
+						"api",
+						"v1",
+						"executor",
+						"app",
+						"special-gesture"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get special gesture details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/10/16",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "35000",
+					"path": [
+						"api",
+						"v1",
+						"executor",
+						"app",
+						"special-gesture",
+						"10",
+						"16"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get special gesture details - Outlook - 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/1/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"1",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:57:37 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 1,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 1,\n    \"hook_value\": \"command+1\",\n    \"system_hook\": \"Keyboard\"\n}"
+				},
+				{
+					"name": "Get special gesture details - Outlook - 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/1/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"1",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:58:01 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 1,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 2,\n    \"hook_value\": \"command+2\",\n    \"system_hook\": \"Keyboard\"\n}"
+				},
+				{
+					"name": "Get special gesture details - Outlook - 3",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/1/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"1",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:58:13 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 1,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 3,\n    \"hook_value\": \"command+3\",\n    \"system_hook\": \"Keyboard\"\n}"
+				},
+				{
+					"name": "Get special gesture details - Outlook - 4",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/1/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"1",
+								"4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:58:23 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 1,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 4,\n    \"hook_value\": \"command+4\",\n    \"system_hook\": \"Keyboard\"\n}"
+				},
+				{
+					"name": "Get special gesture details - Outlook - 5",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/1/5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"1",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:58:36 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 1,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 5,\n    \"hook_value\": \"command+5\",\n    \"system_hook\": \"Keyboard\"\n}"
+				},
+				{
+					"name": "Get special gesture details - Safari - Open YouTube",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/2/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"2",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "137"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:59:06 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 2,\n    \"command\": \"open https://www.youtube.com\",\n    \"gesture_id\": 3,\n    \"hook_value\": \"Shell\",\n    \"system_hook\": \"Shell\"\n}"
+				},
+				{
+					"name": "Get special gesture details - YouTube - Fast forward",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/2/12",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"2",
+								"12"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "127"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:59:46 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 2,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 12,\n    \"hook_value\": \"right,right\",\n    \"system_hook\": \"Keyboard\"\n}"
+				},
+				{
+					"name": "Get special gesture details - YouTube - Rewind",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/2/13",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"2",
+								"13"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "125"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 17:00:19 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 2,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 13,\n    \"hook_value\": \"left,left\",\n    \"system_hook\": \"Keyboard\"\n}"
+				},
+				{
+					"name": "Get special gesture details - YouTube - Toggle theatre/default view",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/2/14",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"2",
+								"14"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "117"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 17:00:36 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 2,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 14,\n    \"hook_value\": \"t\",\n    \"system_hook\": \"Keyboard\"\n}"
+				},
+				{
+					"name": "Get special gesture details - YouTube - Toggle full screen view",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/2/15",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"2",
+								"15"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "117"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 17:01:09 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 2,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 15,\n    \"hook_value\": \"f\",\n    \"system_hook\": \"Keyboard\"\n}"
+				},
+				{
+					"name": "Get special gesture details - YouTube - Play/Pause",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/2/16",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"2",
+								"16"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "117"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 17:01:31 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 2,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 16,\n    \"hook_value\": \"k\",\n    \"system_hook\": \"Keyboard\"\n}"
+				},
+				{
+					"name": "Get special gesture details - Safari - Scroll up",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/2/17",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"2",
+								"17"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "121"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 17:01:47 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 2,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 17,\n    \"hook_value\": \"up,up\",\n    \"system_hook\": \"Keyboard\"\n}"
+				},
+				{
+					"name": "Get special gesture details - Safari - Scroll down",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/2/18",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"2",
+								"18"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "125"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 17:02:16 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 2,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 18,\n    \"hook_value\": \"down,down\",\n    \"system_hook\": \"Keyboard\"\n}"
+				},
+				{
+					"name": "Get special gesture details - Trello - Boards view",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/4/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"4",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "130"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 17:02:55 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 4,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 1,\n    \"hook_value\": \"shift+command+b\",\n    \"system_hook\": \"Keyboard\"\n}"
+				},
+				{
+					"name": "Get special gesture details - Trello - Cards view",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/4/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"4",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "130"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 17:03:17 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 4,\n    \"command\": \"Keyboard\",\n    \"gesture_id\": 2,\n    \"hook_value\": \"shift+command+m\",\n    \"system_hook\": \"Keyboard\"\n}"
+				},
+				{
+					"name": "Get special gesture details - Unity - Robot horizontal attack",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/10/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"10",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "127"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 17:04:02 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 10,\n    \"command\": \"Unity\",\n    \"gesture_id\": 3,\n    \"hook_value\": \"horizontal-attack\",\n    \"system_hook\": \"Unity\"\n}"
+				},
+				{
+					"name": "Get special gesture details - Unity - Robot kick attack",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/10/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"10",
+								"4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "121"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 17:04:28 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 10,\n    \"command\": \"Unity\",\n    \"gesture_id\": 4,\n    \"hook_value\": \"kick-attack\",\n    \"system_hook\": \"Unity\"\n}"
+				},
+				{
+					"name": "Get special gesture details - Unity - Robot combo attack 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/10/6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"10",
+								"6"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 17:04:52 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 10,\n    \"command\": \"Unity\",\n    \"gesture_id\": 6,\n    \"hook_value\": \"combo-attack-1\",\n    \"system_hook\": \"Unity\"\n}"
+				},
+				{
+					"name": "Get special gesture details - Unity - Robot combo attack 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/10/7",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"10",
+								"7"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 17:05:10 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 10,\n    \"command\": \"Unity\",\n    \"gesture_id\": 7,\n    \"hook_value\": \"combo-attack-2\",\n    \"system_hook\": \"Unity\"\n}"
+				},
+				{
+					"name": "Get special gesture details - Unity - Stop current action",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/10/16",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"special-gesture",
+								"10",
+								"16"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "115"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 17:05:26 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"app_id\": 10,\n    \"command\": \"Unity\",\n    \"gesture_id\": 16,\n    \"hook_value\": \"stop\",\n    \"system_hook\": \"Unity\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Trigger special gesture",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:35000/api/v1/executor/app/2/special-gesture/12",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "35000",
+					"path": [
+						"api",
+						"v1",
+						"executor",
+						"app",
+						"2",
+						"special-gesture",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete special gesture details",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app_id\": 1,\n    \"gesture_id\": 1,\n    \"command\": \"open https://www.youtube.com\",\n    \"system_hook\": \"Keyboard\",\n    \"hook_value\": \"k\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:35000/api/v1/executor/app/special-gesture/4/15",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "35000",
+					"path": [
+						"api",
+						"v1",
+						"executor",
+						"app",
+						"special-gesture",
+						"4",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List of apps",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:35000/api/v1/executor/app/list",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "35000",
+					"path": [
+						"api",
+						"v1",
+						"executor",
+						"app",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List of apps",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:35000/api/v1/executor/app/list",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "35000",
+							"path": [
+								"api",
+								"v1",
+								"executor",
+								"app",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "590"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.7.0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Apr 2022 16:57:14 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"1\": {\n        \"app_id\": 1,\n        \"app_name\": \"Outlook\"\n    },\n    \"2\": {\n        \"app_id\": 2,\n        \"app_name\": \"Safari\"\n    },\n    \"3\": {\n        \"app_id\": 3,\n        \"app_name\": \"GarageBand\"\n    },\n    \"4\": {\n        \"app_id\": 4,\n        \"app_name\": \"Trello\"\n    },\n    \"5\": {\n        \"app_id\": 5,\n        \"app_name\": \"Numbers\"\n    },\n    \"6\": {\n        \"app_id\": 6,\n        \"app_name\": \"Keynote\"\n    },\n    \"7\": {\n        \"app_id\": 7,\n        \"app_name\": \"Pages\"\n    },\n    \"8\": {\n        \"app_id\": 8,\n        \"app_name\": \"Slack\"\n    },\n    \"9\": {\n        \"app_id\": 9,\n        \"app_name\": \"WhatsApp\"\n    },\n    \"10\": {\n        \"app_id\": 10,\n        \"app_name\": \"Unity\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
