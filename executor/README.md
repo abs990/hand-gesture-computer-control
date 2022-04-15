@@ -1,24 +1,9 @@
 <h1 align="center"> Executor </h1> <br>
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-## Table of Contents
+<h3>Run command</h3>
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Build Process](#build-process)
-- [Acknowledgments](#acknowledgments)
+```python app.py 35000```
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<h3>APIs</h3>
 
-## Introduction
-
-Add introduction here
-
-## Features
-
-Add features here
-
-## Build Process
-
-Add build process here
+Kindly import the file ```Term Project.postman_collection.json``` in ```Postman``` to view the various APIs.
