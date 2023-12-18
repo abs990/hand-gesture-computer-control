@@ -1,19 +1,86 @@
 <h1 align="center"> Hand-gesture based Computer Control </h1> <br>
 
-## Start-up order
+- [About the project](#about-the-project)
+- [Objectives and scope](#objectives-and-scope)
+  - [Use of Python and MacOS for development](#use-of-python-and-macos-for-development)
+  - [Creation of an architecture that separates execution from pose estimation](#creation-of-an-architecture-that-separates-execution-from-pose-estimation)
+  - [Investigation of 3D model control](#investigation-of-3d-model-control)
+- [Solution Approach](#solution-approach)
+  - [High level architecture](#high-level-architecture)
+  - [Special use case - 3D model control](#special-use-case---3d-model-control)
+- [Implementation](#implementation)
+  - [Determine course of action - Control server](#determine-course-of-action---control-server)
+    - [Inactive state](#inactive-state)
+    - [Await user prompt state](#await-user-prompt-state)
+    - [App open state](#app-open-state)
+- [Running the simulation](#running-the-simulation)
+  - [Start-up order](#start-up-order)
+  - [Development environment](#development-environment)
+  - [Python package versions](#python-package-versions)
+- [Acknowledgments](#acknowledgments)
+
+## About the project
+
+In recent years, technology and computing have scaled new heights. As more and more services are now available at the click/tap of a button, we have indeed made great progress in creating accessibility to one and all. That being said, there is still a requirement for a certain level of physical interaction and understanding of the computer that helps us interface with these services. 
+
+In a typical setting, one needs to make use of a keyboard and mouse(or track-pad in the case of a laptop) or maybe tap items on a touchscreen to convey one’s requirement and access the services and applications one requires. Despite the progress in literacy with interacting with computers in these traditional ways - there is a growing need to explore more user-friendly ways for humans to interact with computers. This effort is beneficial in terms of advancing accessibility among communities that have little prior experience with technology.
+
+Keeping this motive in view, this project aimed to study one potential technique that can simplify the human-computer interaction - hand-pose estimation. The efforts as part of this project has resulted in a rudimentary system that can recognise hand gestures and trigger actions in the host computer. The user only needs to be aware of the supported action and what they can expect from the computer when they show the action using their hands. The attempt has been to make simple actions(like opening an app or a website, controlling the mouse pointer etc) available through hand gestures. Some general examples of hand gestures can be seen below.
+
+![figure-1](figures/hand_poses.png)
+
+## Objectives and scope
+
+### Use of Python and MacOS for development
+Python was the de-facto choice of language for implementing the modules of this project given the vast array of libraries that support use cases in pose estimation and system control. For purposes of ensuring the completion of the end-to-end workflow, the current system has been developed to be compatible for use on MacOS only. However, the effort needed to enable this system for alternate platforms would require only trivial changes.
+
+### Creation of an architecture that separates execution from pose estimation 
+Given that after a certain point in the work timeline, the bulk of enhancements would be concentrated on expanding the gesture set and on-boarding more applications - it was imperative to design an architecture that would allow separation of the various sub-problems. Specifically, the hand pose estimation has to be separated from the core decision intelligence and the logic responsible for triggering the final action.
+
+### Investigation of 3D model control
+As an extension of the existing architecture, a proof-of-concept has been implemented to investigate the viability of 3D model control using hand gestures. This work has further implications in robotics and AI.
+
+## Solution Approach
+
+### High level architecture
+
+![high-level-architecture](figures/architecture.png)
+
+### Special use case - 3D model control
+
+The component residing in the Unity Engine and the executor communicates via a socket-based mechanism, similar to the interaction between the gesture-client and the control server. The executor passes on ’action’ messages(stored in the private database) to the component attached to a 3D model object setup in the Unity engine. The component updates the object state based on the received message and the updated state can be seen via the Unity editor.
+
+![architecture-3d-model-control](figures/unity-architecture.png)
+
+## Implementation
+
+### Determine course of action - Control server
+
+#### Inactive state
+![control-server-inactive](figures/flow_inactive_state.png)
+
+#### Await user prompt state
+![control-server-await-user-prompt](figures/flow_await_user_prompt.png)
+
+#### App open state
+![control-server-app-open](figures/flow_app_open.png)
+
+## Running the simulation
+
+### Start-up order
 1. Executor
 2. Control server
 3. Gesture client
 4. Unity (optional)
 
-## Development environment
+### Development environment
 
 ```
 Python                                            3.7.0
 Unity                                             2021.2.19f1
 ```
 
-## Python package versions
+### Python package versions
 ```
 absl-py                                           1.0.0
 attrs                                             21.4.0
